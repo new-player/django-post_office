@@ -148,6 +148,8 @@ class Email(models.Model):
             if not commit:
                 raise
 
+        connections.close()
+
         if commit:
             self.status = status
             self.save(update_fields=['status'])
